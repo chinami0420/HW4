@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    
+
+
+    <title>Quiz</title>
+    </head>
+    <body>
+        <div class="start">
+        <!-- <h1>Quiz</h1>
+        <div id="startbutton">
+            <button type="button" class="btn btn-primary btn-lg" a href="#">Start Quiz</a>
+                <div id="text-button"><p id="text">Click</p></div>
+
+        
+            </div>  
+        </div> -->
+        <h2 class="time"></h2>
+        <div id="main"></div>
+
+            <div class="container">
+                <div id="question-container" class="hide">
+                <div id="question">Question</div>
+                <div id="answer-buttons" class="btn-grid">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
+            </div>
+                <div class="controls">
+                    <button id= "start-btn" class="start-btn btn">Start</button>
+                    <button id= "next-btn" class="next-btn btn hide">Next</button>
+                    
+
+                </div>
+            </div>
+    
+
+   
+
+    <!-- <script>
+        // document.getElementById("text-button").onclick = function() {
+        // document.getElementById("text").innerHTML = "Clicked！";
+        // }
+        // var timeEl = document.querySelector(".time");
+        // var mainEl = document.getElementById("main");
+
+        // var secondsLeft = 10;
+
+        // function setTime() {
+        // var timerInterval = setInterval(function() {
+        //     secondsLeft--;
+        //     timeEl.textContent = secondsLeft + " seconds left till colorsplosion.";
+
+        //     if(secondsLeft === 0) {
+        //     clearInterval(timerInterval);
+        //     sendMessage();
+        //     }
+
+        // }, 1000);
+        // }
+
+        // function sendMessage() {
+        // timeEl.textContent = " ";
+
+        // var imgEl = document.createElement("img");
+
+        // imgEl.setAttribute("src", "images/image_1.jpg");
+        // mainEl.appendChild(imgEl);
+
+        // }
+
+        // setTime();
+
+const startButton = document.getElementById('start-btn')
+const questionContainerElement = document.getElementById('question-container')
+const questionElement = document.getElementById('question')
+const answerButtonElement = document.getElementById('answer-buttons')
+let shuffledQuestions, currentQuestionsIndex
+
+
+
+startButton.addEventListener('click', startGame)
+
+
+
+
+
+     function startGame(){
+        console.log('Started')
+        startButton.classList.add('hide')
+        shuffledQuestions = questions.sort(() => Math.random() - .5)
+        currentQuestionsIndex = 0
+        questionContainerElement.classList.remove('hide')
+        setNextQuestion()
+     }           
+     function setNextQuestion(){
+        showQuestion(shuffledQuestions[currentQuestionsIndex])
+     }
+
+     function showQuestion(question) {
+        questionElement.innerText = question.question
+        question.answers.forEach(answer => {
+            const button = document.createElement('btn')
+            if(answer.conrrect){
+                button.dateset.correct = answer.correct
+            }
+            button.addEventListener('click', selectAnswer)
+            answerButtonElement.appendChild(button)
+
+    })
+
+     }
+
+     function resetState(){
+         nextButton.classList.add('hide')
+         while(answerButtonElement.firstChild){
+             answerButtonElement.removeChild(answerButtonElement.firstChild)
+         }
+     }
+     function selectAnswer(){
+
+     }
+
+     const question = [
+         {
+             quetion:"What is Luana's Japanese name?",
+             answers: [
+                 { text: "Shion", correct: true},
+                 { text: "Kanon", correct: false}
+             ]
+         }
+     ]
+
+    </script> -->
+  </body>
+</html>
