@@ -1,3 +1,32 @@
+var timeoutHandle;
+function countdown(minutes) {
+  var seconds = 60;
+  var mins = minutes;
+  function tick() {
+    var counter = document.getElementById("timer");
+    var current_minutes = mins - 1;
+    seconds--;
+    counter.innerHTML =
+      current_minutes.toString() +
+      ":" +
+      (seconds < 10 ? "0" : "") +
+      String(seconds);
+    if (seconds > 0) {
+      timeoutHandle = setTimeout(tick, 1000);
+    } else {
+      if (mins > 1) {
+        // countdown(mins-1);   never reach “00″ issue solved:Contributed by Victor Streithorst
+        setTimeout(function() {
+          countdown(mins - 1);
+        }, 1000);
+      }
+    }
+  }
+  tick();
+}
+
+countdown(3);
+
 const question = document.getElementById("question");
 const choices = document.getElementById("choices");
 const btn = document.getElementById("btn");
@@ -7,16 +36,19 @@ const scoreLabel = document.querySelector("#result > p");
 const quizSet = [
   {
     q: "Commonly used data types do not include?",
-    c: ["Strings", "Booleans", "Alert", "Numbers"]
+    c: ["Strings", "Booleans", "Alert", "Numbers"],
+    a: "Alert"
   },
   {
     q: "The condition in an if / else statement is enclosed within ____.?",
-    c: ["Quotes", "Curly brackets", "Parentheses", "Square blackets"]
+    c: ["Quotes", "Curly brackets", "Parentheses", "Square blackets"],
+    a: "Curly brackets"
   },
   {
     q:
       "The ___ tag set provides information to the browser about your webpage including the author name and keywords.",
-    c: ["html", "meta", "head", "body"]
+    c: ["html", "meta", "head", "body"],
+    a: "head"
   },
   {
     q: "What does CSS stand for??",
@@ -25,7 +57,8 @@ const quizSet = [
       "Custom Style Sheets",
       "Computer Style Sheets",
       "Colorful Style Sheets"
-    ]
+    ],
+    a: "Cascading Style Sheets"
   }
 ];
 
@@ -42,13 +75,12 @@ function shuffle(arr) {
 }
 
 function checkAnswer(li) {
-  // if(isAnswered === true){
   if (isAnswered) {
     return;
   }
   isAnswered = true;
 
-  if (li.textContent === quizSet[currentNum].c[0]) {
+  if (li.textContent === quizSet[currentNum].a) {
     li.classList.add("correct");
     score++;
   } else {
