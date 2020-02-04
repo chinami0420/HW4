@@ -1,76 +1,102 @@
-/* .start {
-  width: auto;
-  height: 400px;
-  text-align: center;
-  background-color: pink;
-  margin-top: 20px;
-}
-
-h1 {
-  font-size: 100px;
-}
-
-a {
-  font-size: 70px;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-} */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  font-family: Gotham Ronded;
-}
-
 body {
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vw;
+  background-color: pink;
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .container {
-  width: 800px;
-  max-width: 80%;
-  background-color: lightskyblue;
+  width: 400px;
+  margin: 8px auto;
+  background: white;
   border-radius: 5px;
+  padding: 16px;
+  position: relative;
+}
+
+#question {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+#choices {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+#choices > li {
+  border: 1px solid aquamarine;
   padding: 10px;
-  box-shadow: 0 0 10px 2px;
-}
-.btn-grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 10px;
-  margin: 20px, 0;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
-.btn {
-    background-color: white;
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: pink;
+#choices > li:hover {
+  background-color: #f8f8f8;
 }
 
-.btn.hover {
-    border-color: orange;
+#choices > li.correct {
+  background: lightskyblue;
+  border-color: blue;
+  color: pink;
+  font-weight: bold;
 }
 
-.start-btn, .next-btn {
-    font-size: 1.5em;
-    font-weight: bold;
-    padding: 10px 20px;
+#choices > li.correct::after {
+  content: '...Correct!'
 }
 
-.controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#choices > li.wrong {
+  background: lightskyblue;
+  border-color: red;
+  color: pink;
+  font-weight: bold;
 }
 
-.hide {
-    display: none;
+#choices > li.wrong::after {
+  content: '...Wrong!'
 }
 
+#btn, #result > a {
+  background: palevioletred;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  color: black;
+  box-shadow: 0 5px 0 #f8f8f8;
+}
+
+#btn.disabled {
+  background: #ccc;
+  box-shadow: 0 5px 0 #bbb;
+  opacity: 0.7;
+}
+
+#result{
+  position: absolute;
+  width: 300px;
+  background: rosybrown;
+  padding: 30px;
+  box-shadow: 0 4px 8px greenyellow;
+  top: 50px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-align: center;
+  transition: 0.4s;
+}
+
+#result.hidden {
+  transform: translateY(-500px);
+}
+
+#result > p{
+  font-size: 30px;
+}
+
+#result > a{
+  display: block;
+  text-decoration: none;
+}
